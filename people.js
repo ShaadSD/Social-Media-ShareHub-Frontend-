@@ -63,7 +63,7 @@ if (logoutBtn) {
                 const card = document.createElement("div");
                 card.classList.add("d-flex", "align-items-center", "justify-content-between", "p-2");
 
-                const imgSrc = person.image || `https://res.cloudinary.com/ds97wytcs/image/upload/v1725001777/m6idyx9e4rwnmxawgu8o.png`;
+                const imgSrc = person.image || `https://media.istockphoto.com/id/2164630967/vector/people-and-person-icon-people-icon-with-modern-flat-design-people-vector-icon-isolated-on.jpg?s=612x612&w=0&k=20&c=lFYjLbYqoPpRsIGAPr3NUAAIR9k6uLqIWFerhR4F0c4=`;
 
                 card.innerHTML = `
                   <div class="d-flex align-items-center gap-3">

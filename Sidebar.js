@@ -12,9 +12,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const profileCard = document.getElementById("card-profile");
 
-      profileCard.querySelector(".profile-avatar img").src =
-        data.image || `https://res.cloudinary.com/ds97wytcs/image/upload/v1725001777/m6idyx9e4rwnmxawgu8o.png`;
-      profileCard.querySelector(".profile-name").textContent = data.username;
+      // profileCard.querySelector(".profile-avatar img").src =
+      //   data.image || `https://media.istockphoto.com/id/2181567759/vector/round-gray-circle-with-a-simple-human-silhouette-light-gray-shadow-around-the-circle.jpg?s=2048x2048&w=is&k=20&c=pcrT4UtlhWAYNZ_HtgmQFq2lO1QPo0SwOmQHnNDpexs=`;
+      // profileCard.querySelector(".profile-name").textContent = data.username;
+      const avatarContainer = profileCard.querySelector(".profile-avatar");
+avatarContainer.innerHTML = `
+  <a href="profile.html?user_id=${loginUserId}" class="profile-link">
+    <img src="${
+      data.image ||
+      'https://media.istockphoto.com/id/2164630967/vector/people-and-person-icon-people-icon-with-modern-flat-design-people-vector-icon-isolated-on.jpg?s=612x612&w=0&k=20&c=lFYjLbYqoPpRsIGAPr3NUAAIR9k6uLqIWFerhR4F0c4='
+    }" alt="Profile Image">
+  </a>
+`;
+
+// Add link to profile name
+profileCard.querySelector(".profile-name").innerHTML =
+  `<a href="profile.html?user_id=${loginUserId}" class="profile-link text-decoration-none text-dark">${data.username}</a>`;
       profileCard.querySelector(".profile-role").textContent = data.bio || "bio";
       profileCard.querySelector(".profile-email").textContent = data.email || "Email not set";
 

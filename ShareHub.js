@@ -513,7 +513,7 @@ async function createTextPost() {
 }
 
 
-let loggedInUserImage = "https://res.cloudinary.com/ds97wytcs/image/upload/v1725001777/m6idyx9e4rwnmxawgu8o.png"; 
+let loggedInUserImage = "https://media.istockphoto.com/id/2164630967/vector/people-and-person-icon-people-icon-with-modern-flat-design-people-vector-icon-isolated-on.jpg?s=612x612&w=0&k=20&c=lFYjLbYqoPpRsIGAPr3NUAAIR9k6uLqIWFerhR4F0c4="; 
 
 async function loadUserProfileImage() {
     try {
