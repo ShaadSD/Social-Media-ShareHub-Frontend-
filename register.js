@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      const res = await fetch("https://social-media-sharehub.onrender.com/api/user/register/", {
+      const res = await fetch("http://127.0.0.1:8000/api/user/register/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, first_name, last_name, email, password, confirm_password })
