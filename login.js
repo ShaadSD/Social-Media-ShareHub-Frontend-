@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (defaultBtn) {
     defaultBtn.addEventListener("click", () => {
       document.getElementById("login-email").value = "ash715614@gmail.com";
-      document.getElementById("login-password").value = ".gpajt dmw";
+      document.getElementById("login-password").value = "1234abcd@";
     });
   }
 
