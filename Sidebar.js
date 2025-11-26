@@ -49,7 +49,7 @@ profileCard.querySelector(".profile-name").innerHTML =
 
 // latest follower
   async function loadSidebarFollowers(searchTerm = "") {
-    const API_URL = "http://127.0.0.1:8000/api/followers/";
+    const API_URL = "https://social-media-sharehub.onrender.com/api/followers/";
 
     try {
       const response = await fetch(`${API_URL}?user_id=${loginUserId}&type=followers&search=${searchTerm}`, {
