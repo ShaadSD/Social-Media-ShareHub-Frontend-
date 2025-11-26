@@ -12,7 +12,7 @@ async function loadAllPosts() {
     const feedContainer = document.querySelector("#feedArea");
     
 
-    const scrollPos = window.scrollY;
+    // const scrollPos = window.scrollY;
 
     try {
         const response = await fetch(BASE_URL, {
