@@ -48,65 +48,51 @@ profileCard.querySelector(".profile-name").innerHTML =
   }
 
 // latest follower
-  async function loadSidebarFollowers(searchTerm = "") {
-    const API_URL = "https://social-media-sharehub.onrender.com/api/followers/";
+async function loadSidebarFollowers(searchTerm = "") {
+  const API_URL = "https://social-media-sharehub.onrender.com/api/followers/";
 
-    try {
-      const response = await fetch(`${API_URL}?user_id=${loginUserId}&type=followers&search=${searchTerm}`, {
-        headers: { "Authorization": `Token ${token}` }
-      });
+  try {
+    const response = await fetch(`${API_URL}?user_id=${loginUserId}&type=followers&search=${searchTerm}`, {
+      headers: { "Authorization": `Token ${token}` }
+    });
 
-      if (!response.ok) throw new Error("Failed to fetch followers");
+    const data = await response.json();
+    const latestFollowers = data.slice(-4).reverse();
 
-      const data = await response.json();
-      const latestFollowers = data.slice(-4).reverse();
+    const container = document.getElementById("latestFollowersCard");
 
-      const container = document.querySelector(".card-custom:last-child");
-      container.innerHTML = `
-        <h6 class="mb-2 d-flex justify-content-between align-items-center">
-          <span>Latest Followers</span>
-          <a href="followers.html" class="text-decoration-none" 
-             style="font-size:0.85rem; color:var(--accent-1);">See All</a>
-        </h6>
-        <div class="d-flex flex-column gap-2" id="latestFollowersList"></div>
+    const listDiv = document.getElementById("latestFollowersList");
+    listDiv.innerHTML = "";
+
+    latestFollowers.forEach(follower => {
+      const div = document.createElement("div");
+      div.classList.add("d-flex", "align-items-center", "justify-content-between");
+
+      div.innerHTML = `
+        <div class="d-flex align-items-center gap-2">
+          <a href="profile.html?user_id=${follower.follower}">
+            <img src="${follower.image}" style="border-radius:50%; width:42px; height:42px;">
+          </a>
+          <div>
+            <div>
+              <a href="profile.html?user_id=${follower.follower}"
+                 style="font-weight:600;font-size:.9rem; text-decoration:none; color:#000;">
+                ${follower.follower_username}
+              </a>
+            </div>
+            <div class="muted" style="font-size:13px;">${follower.first_name} ${follower.last_name}</div>
+          </div>
+        </div>
       `;
 
-      const listDiv = document.getElementById("latestFollowersList");
-      listDiv.innerHTML = "";
+      listDiv.appendChild(div);
+    });
 
-      latestFollowers.forEach(follower => {
-        const imgSrc = follower.image;
-        const username = follower.follower_username || "Unknown";
-        const first_name = follower.first_name;
-        const last_name = follower.last_name;
-        console.log(follower)
-        const div = document.createElement("div");
-        div.classList.add("d-flex", "align-items-center", "justify-content-between");
-
-        div.innerHTML = `
-          <div class="d-flex align-items-center gap-2">
-            <a href="profile.html?user_id=${follower.follower}">
-            <img src="${imgSrc}" style="border-radius:50%; width:42px; height:42px;">
-          </a>
-            <div>
-            <div>
-            <a href="profile.html?user_id=${follower.follower}" 
-              style="font-weight:600;font-size:.9rem; text-decoration:none; color:#000;">
-              ${username}
-            </a>
-            </div>
-            <div class="muted" style="font-size:13px;">${first_name} ${last_name}</div>
-            </div>
-          </div>
-          
-        `;
-        listDiv.appendChild(div);
-      });
-
-    } catch (error) {
-      console.error(error);
-    }
+  } catch (error) {
+    console.error(error);
   }
+}
+
 
 //  People know
   async function loadPeopleYouMayKnow() {
