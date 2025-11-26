@@ -1,6 +1,8 @@
 
 const token = localStorage.getItem("token");
-const userId = localStorage.getItem("user_id");
+const params = new URLSearchParams(window.location.search);
+const userId = params.get("user_id") || localStorage.getItem("user_id");
+
 const API_URL = "https://social-media-sharehub.onrender.com/api/followers/";
 
 const followersList = document.getElementById("followersList");

@@ -195,6 +195,13 @@ async function loadProfileInfo() {
         console.error("Profile load failed:", err);
     }
 }
+document.getElementById("followersLink").addEventListener("click", () => {
+   window.location.href = `followers.html?user_id=${userId}`;
+});
+
+document.getElementById("followingLink").addEventListener("click", () => {
+   window.location.href = `following.html?user_id=${userId}`;
+});
 
 async function setupFollowButton() {
     const followBtn = document.getElementById("followProfileBtn");
