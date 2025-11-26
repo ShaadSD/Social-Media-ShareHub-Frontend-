@@ -301,15 +301,23 @@ body {
 
 
 
-  .sidebar-fixed {
+.sidebar-fixed {
     position: fixed;
-    top: 90px;          
-    left: 2;
-    right: 2;
-    width: 450px;        
+    top: 90px;
+    left: 2px;
+    width: 450px;
     height: calc(100vh - 90px);
 
-  }
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.sidebar-fixed::-webkit-scrollbar {
+    display: none;
+}
 
  
   .content-area {
