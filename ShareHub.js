@@ -40,7 +40,7 @@ async function loadAllPosts() {
 }
 
 
-        window.scrollTo(0, scrollPos);
+        // window.scrollTo(0, scrollPos);
 
     } catch (err) {
         console.error("Error loading posts:", err);
