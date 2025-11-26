@@ -30,7 +30,7 @@
     font-weight: 500;
     margin-right: 6px;
 }
-post-footer
+
 
 .comment-text {
     word-wrap: break-word;
@@ -404,7 +404,6 @@ hr.soft {
   left: 100px;
   width: 400px;
   overflow-y: auto;
-  padding-bottom: 200px;
 }
 
 .right-col {
